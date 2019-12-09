@@ -12,6 +12,8 @@ for (container of containers) {
     frameCounts.push(frames.length);
 }
 
+document.getElementById("loading").style.display = "none";
+
 function changeFrame() {
     for (let i = 0; i < games.length; i++) {
         let frames = games[i];
@@ -20,7 +22,8 @@ function changeFrame() {
 
         let currFrame = Math.min(currIndex, frameCount - 1);
         frames[currFrame].style.display = "none";
-        currIndex = currIndex + 1 > frameCount + 3 ? 0 : currIndex + 1;
+        currIndex = currIndex + 1;
+        // currIndex = currIndex + 1 > frameCount + 3 ? 0 : currIndex + 1;
         currFrame = Math.min(currIndex, frameCount - 1);
         frames[currFrame].style.display = "block";
 
@@ -30,4 +33,4 @@ function changeFrame() {
     }
 }
 
-setInterval(changeFrame, 500);
+setInterval(changeFrame, 200);

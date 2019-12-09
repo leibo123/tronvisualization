@@ -1,3 +1,7 @@
+header {
+    margin: 0 auto;
+    text-align: center;
+}
 .board {
     display: flex;
     flex-wrap: wrap;
@@ -49,4 +53,8 @@
 
 .bomb {
     background-color: red;
+}
+
+#loading {
+    margin-bottom: 2000px;
 }
