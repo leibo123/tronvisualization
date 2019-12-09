@@ -16,23 +16,23 @@ def boardToHTML(board):
             continue
 
         if char == " ":
-            b += "<div class='space'></div>"
+            b += "<span class='space'></span>"
         if char == "#":
-            b += "<div class='wall'></div>"
+            b += "<span class='wall'></span>"
         if char == "x":
-            b += "<div class='barrier'></div>"
+            b += "<span class='barrier'></span>"
         if char == "1":
-            b += "<div class='player1'><p>1</p></div>"
+            b += "<span class='player1'><p>1</p></span>"
         if char == "2":
-            b += "<div class='player2'><p>2</p></div>"
+            b += "<span class='player2'><p>2</p></span>"
         if char == "*":
-            b += "<div class='trap'><p>*</p></div>"
+            b += "<span class='trap'><p>*</p></span>"
         if char == "@":
-            b += "<div class='armor'><p>@</p></div>"
+            b += "<span class='armor'><p>@</p></span>"
         if char == "^":
-            b += "<div class='speed'><p>^</p></div>"
+            b += "<span class='speed'><p>^</p></span>"
         if char == "!":
-            b += "<div class='bomb'><p>!</p></div>"
+            b += "<span class='bomb'><p>!</p></span>"
 
     b += "</div></div>"
     return b
