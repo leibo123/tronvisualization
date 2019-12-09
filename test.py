@@ -48,14 +48,13 @@ for filename in glob.glob('*.txt'):
     with open(filename) as f:
         print(filename)
         data = json.load(f)
-        for d in data:
+        for d1, d2 in data:
             print("===========CUT 1===============")
-            for d2 in d:
-                print("xxxxxxxxxxxxxxCUT 2xxxxxxxxxxxxx")
-                tronResults += "<div class='tournament-container'>"
-                for d3 in d2:
-                    tronResults += boardToHTML(d3)
-                tronResults += "</div>"
+            tronResults += "<div class='tournament-container'>"
+            for d3, d4 in zip(d1, d2):
+                tronResults += boardToHTML(d3)
+                tronResults += boardToHTML(d4)
+            tronResults += "</div>"
     bodyEnd = '</main></body><script src="test.js"></script></html>'
     html_results = header + bodyStart + tronResults + bodyEnd
     out_path = filename + ".html"
