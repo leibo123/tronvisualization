@@ -1,0 +1,52 @@
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: calc(17 * 20px);
+}
+
+.board > div {
+    /* display: inline-block; */
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.board > div > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wall {
+    background-color: black;
+}
+
+.barrier {
+    background-color: gray;
+}
+
+.player1 {
+    background-color: orange;
+}
+
+.player2 {
+    background-color: orange;
+}
+
+.trap {
+    background-color: gold;
+}
+
+.armor {
+    background-color: purple;
+}
+
+.speed {
+    background-color: green;
+}
+
+.bomb {
+    background-color: red;
+}

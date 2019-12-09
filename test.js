@@ -15,12 +15,15 @@ for (container of containers) {
 function changeFrame() {
     for (let i = 0; i < games.length; i++) {
         let frames = games[i];
-        let currIndex = gamesCurrIndex[i];
         let frameCount = frameCounts[i];
+        let currIndex = gamesCurrIndex[i];
 
-        frames[currIndex].style.display = "none";
-        currIndex = currIndex + 1 >= frameCount ? 0 : currIndex + 1;
-        frames[currIndex].style.display = "block";
+        let currFrame = Math.min(currIndex, frameCount - 1);
+        frames[currFrame].style.display = "none";
+        currIndex = currIndex + 1 > frameCount + 3 ? 0 : currIndex + 1;
+        currFrame = Math.min(currIndex, frameCount - 1);
+        frames[currFrame].style.display = "block";
+
 
         games[i] = frames;
         gamesCurrIndex[i] = currIndex;
