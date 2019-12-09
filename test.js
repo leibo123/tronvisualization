@@ -1,20 +1,30 @@
-const container = document.getElementById("tournament-container");
-const frames = container.childNodes;
+const containers = document.getElementsByClassName("tournament-container");
+let games = [];
+let gamesCurrIndex = [];
+let frameCounts = [];
 
-let currFrame = 0;
-let totalFrames = frames.length;
-
-console.log(frames);
-
-for (frame of frames) {
-    frame.style.display = "none";
+for (container of containers) {
+    let frames = container.childNodes;
+    for (frame of frames) frame.style.display = "none";
+    frames[0].style.display = "block";
+    games.push(frames);
+    gamesCurrIndex.push(0);
+    frameCounts.push(frames.length);
 }
-frames[0].style.display = "block";
 
 function changeFrame() {
-    frames[currFrame].style.display = "none";
-    currFrame = currFrame + 1 >= totalFrames ? 0 : currFrame + 1;
-    frames[currFrame].style.display = "block";
+    for (let i = 0; i < games.length; i++) {
+        let frames = games[i];
+        let currIndex = gamesCurrIndex[i];
+        let frameCount = frameCounts[i];
+
+        frames[currIndex].style.display = "none";
+        currIndex = currIndex + 1 >= frameCount ? 0 : currIndex + 1;
+        frames[currIndex].style.display = "block";
+
+        games[i] = frames;
+        gamesCurrIndex[i] = currIndex;
+    }
 }
 
 setInterval(changeFrame, 500);
