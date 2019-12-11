@@ -45,7 +45,7 @@ def boardToHTML(board):
     b += "</div></div>"
     return b
 
-header = '<!doctype html><html><head><title>CS1410 &middot; TRON Results</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="./results.css"></head>'
+header = '<!doctype html><html><head><title>CS1410 &middot; TRON Replays</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="./results.css"></head>'
 bodyEnd = '</main></body><script src="test.js"></script></html>'
 index = 0
 games_dict = {}
@@ -104,9 +104,9 @@ for filename in glob.glob('*.txt'):
                     tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
                     p2wincount += 1
 
-    bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41</h1></a><h3>Bucket ' + bucket + ", " + roundstr + "</h3><h2>" + player1 + " v. " + player2 + '</h2><h5><span style="color:blue">' + str(p1wincount) + '</span> : <span style="color:red">' + str(p2wincount) + '</span></h5><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
+    bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a><p class="bucket">Bucket ' + bucket + ", " + roundstr + "</p><p class='vs'>" + player1 + " v. " + player2 + '</p><p class="score"><span class="p1">' + str(p1wincount) + '</span> : <span class="p2">' + str(p2wincount) + '</span></p><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
     html_results = header + bodyStart + tronResults + bodyEnd
-    game_str = '<h6><a href="' + out_path + '">Bucket ' + bucket + ", " + roundstr + ": " + player1 + " v. " + player2 + ' (<span style="color:blue">' + str(p1wincount) + '</span> - <span style="color:red">' + str(p2wincount) + '</span>)</a></h6>'
+    game_str = '<p class="bucket"><a href="' + out_path + '">Bucket ' + bucket + ", " + roundstr + ": " + player1 + " v. " + player2 + ' (<span style="color:blue">' + str(p1wincount) + '</span> - <span style="color:red">' + str(p2wincount) + '</span>)</a></p>'
     games_dict[bucket] = games_dict.get(bucket, []) + [game_str]
     with open(out_path, "w", encoding='utf-8') as out:
         # out.write(htmlmin.minify(html_results, remove_empty_space=True))
