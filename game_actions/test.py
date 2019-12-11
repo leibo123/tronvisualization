@@ -69,6 +69,7 @@ for filename in glob.glob('*.txt'):
         data = json.load(f)
         p1wincount = 0
         p2wincount = 0
+        boardIndex = 0
         for d1, d2 in data:
             tronResults += "<div class='game-wrapper'>"
             tronResults += "<div class='game'>"
@@ -104,6 +105,7 @@ for filename in glob.glob('*.txt'):
                 else:
                     tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
                     p2wincount += 1
+            boardIndex += 1
 
     bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a><p class="bucket">Bucket ' + bucket + ", " + roundstr + "</p><p class='vs'>" + player1 + " v. " + player2 + '</p><p class="score"><span class="p1">' + str(p1wincount) + '</span> : <span class="p2">' + str(p2wincount) + '</span></p><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
     html_results = header + bodyStart + tronResults + bodyEnd
