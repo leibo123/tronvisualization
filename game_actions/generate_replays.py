@@ -46,7 +46,7 @@ def boardToHTML(board):
     return b
 
 header = '<!doctype html><html><head><title>CS1410 &middot; TRON Replays</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><link rel="stylesheet" href="./results.css"></head>'
-bodyEnd = '</main></body><script src="test.js"></script></html>'
+bodyEnd = '</main></body><script src="tron_replays.js"></script></html>'
 index = 0
 games_dict = {}
 
@@ -125,7 +125,7 @@ for i in ['0', '1', '2', '3']:
         htmlBody += '<li>' + gamestr + '</li>'
 htmlBody += "</ul>"
 bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a>'
-bodyEnd = '</main></body><script src="test.js"></script></html>'
+bodyEnd = '</main></body><script src="tron_replays.js"></script></html>'
 html_results = header + bodyStart + htmlBody + bodyEnd
 with open(masterlistpath, "w", encoding='utf-8') as out:
     out.write(html_results)
