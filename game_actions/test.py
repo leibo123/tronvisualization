@@ -106,7 +106,7 @@ for filename in glob.glob('*.txt'):
 
     bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a><p class="bucket">Bucket ' + bucket + ", " + roundstr + "</p><p class='vs'>" + player1 + " v. " + player2 + '</p><p class="score"><span class="p1">' + str(p1wincount) + '</span> : <span class="p2">' + str(p2wincount) + '</span></p><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
     html_results = header + bodyStart + tronResults + bodyEnd
-    game_str = '<p class="bucket"><a href="' + out_path + '">Bucket ' + bucket + ", " + roundstr + ": " + player1 + " v. " + player2 + ' (<span style="color:blue">' + str(p1wincount) + '</span> - <span style="color:red">' + str(p2wincount) + '</span>)</a></p>'
+    game_str = '<p class="bucket"><a href="' + out_path + '">Bucket ' + bucket + ", " + roundstr + ": " + player1 + " v. " + player2 + ' (<span class="p1">' + str(p1wincount) + '</span> - <span class="p2">' + str(p2wincount) + '</span>)</a></p>'
     games_dict[bucket] = games_dict.get(bucket, []) + [game_str]
     with open(out_path, "w", encoding='utf-8') as out:
         # out.write(htmlmin.minify(html_results, remove_empty_space=True))
