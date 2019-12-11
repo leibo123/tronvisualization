@@ -62,7 +62,7 @@ for filename in glob.glob('*.txt'):
     player2 = "<span class='p2'>" + p2 + "</span>"
     bucket = displayname[bucket_ind + 1:-4]
     roundstr = filename[:p1_ind].replace("_", " ")
-    out_path = "../tron_replays/" + filename[:-4] + ".html"
+    out_path = "../tron_replays/" + filename.replace("%3A", "%253A")[:-4] + ".html" # handle colon escape sequence
 
     with open(filename, encoding='utf-8') as f:
         print("opening", filename, "for reading.")
@@ -112,6 +112,9 @@ for filename in glob.glob('*.txt'):
     with open(out_path, "w", encoding='utf-8') as out:
         # out.write(htmlmin.minify(html_results, remove_empty_space=True))
         out.write(html_results) # faster but not minified
+"""
+Begin logic for printing out the list of all matches
+"""
 htmlBody = '<input type="text" id="myInput" onkeyup="searchNames()" placeholder="Search for names.."><ul id="myUL">'
 for i in ['0', '1', '2', '3']:
     games = games_dict[i]
@@ -123,6 +126,7 @@ bodyEnd = '</main></body><script src="test.js"></script></html>'
 html_results = header + bodyStart + htmlBody + bodyEnd
 with open(masterlistpath, "w", encoding='utf-8') as out:
     out.write(html_results)
+    print("list of all games written to", masterlistpath)
 
 
 
