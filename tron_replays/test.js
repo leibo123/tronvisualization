@@ -1,15 +1,18 @@
-const containers = document.getElementsByClassName("tournament-container");
+const containers = document.getElementsByClassName("game");
 let games = [];
 let gamesCurrIndex = [];
 let frameCounts = [];
 
 function restart(index) {
+  let frames = games[index];
+  for (frame of frames) frame.style.display = "none";
+  frames[0].style.display = "block";
+  games[index] = frames;
   gamesCurrIndex[index] = 0;
 }
 
 for (container of containers) {
     let frames = container.childNodes;
-    frames.pop(); // removes restart button
     for (frame of frames) frame.style.display = "none";
     frames[0].style.display = "block";
     games.push(frames);

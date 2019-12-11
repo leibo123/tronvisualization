@@ -104,9 +104,27 @@ a:hover {
     color: black;
 }
 
-.tournament-container + p {
+.game + p {
     margin-top: 5px;
+}
+
+.game-wrapper {
     margin-bottom: 30px;
+    position: relative;
+}
+
+.game-wrapper .restart {
+    position: absolute;
+    top: calc(17 * 20px - 30px);
+    left: calc(50% + 9 * 20px);
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color:#b3b3c9;
+}
+
+.game-wrapper .restart:hover {
+    background-color: white;
 }
 
 .wall {

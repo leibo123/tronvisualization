@@ -90,7 +90,7 @@ for filename in glob.glob('*.txt'):
                 tronResults += boardToHTML(d1[len(d1) - 1])
             elif len(d2) > len(d1):
                 tronResults += boardToHTML(d2[len(d2) - 1])
-            tronResults += "</div><button class='restart' onclick='restart(" + str(boardIndex) + ")'>R</button></div>"
+            tronResults += "</div><button class='restart' title='Click to restart' onclick='restart(" + str(boardIndex) + ")'>R</button>"
             if len(d1) == len(d2):
                 if flip:
                     tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
@@ -105,6 +105,7 @@ for filename in glob.glob('*.txt'):
                 else:
                     tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
                     p2wincount += 1
+            tronResults += "</div>"
             boardIndex += 1
 
     bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a><p class="bucket">Bucket ' + bucket + ", " + roundstr + "</p><p class='vs'>" + player1 + " v. " + player2 + '</p><p class="score"><span class="p1">' + str(p1wincount) + '</span> : <span class="p2">' + str(p2wincount) + '</span></p><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
