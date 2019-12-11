@@ -1,0 +1,95 @@
+header {
+    margin: 0 auto;
+    text-align: center;
+}
+h1 {
+    font-size: 48px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+h3 {
+    margin-bottom: 16px;
+}
+h4 {
+    font-size: 20px;
+    padding-bottom: 8px;
+    text-align: center;
+}
+h5 {
+    font-size: 32px;
+    padding-bottom: 18px;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    margin-bottom: 18px;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: calc(17 * 20px);
+}
+
+.board > span {
+    /* display: inline-block; */
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.board > span > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+}
+
+.wall {
+    background-color: black;
+}
+
+.barrier {
+    background-color: gray;
+}
+
+.player1 {
+    background-color: orange;
+}
+
+.player2 {
+    background-color: orange;
+}
+
+.trap {
+    background-color: gold;
+}
+
+.armor {
+    background-color: purple;
+}
+
+.speed {
+    background-color: green;
+}
+
+.bomb {
+    background-color: red;
+}
+
+#loading {
+    width: 40vw;
+    height: auto;
+    margin-bottom: 2000px;
+}
