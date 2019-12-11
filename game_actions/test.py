@@ -58,8 +58,8 @@ for filename in glob.glob('*.txt'):
     bucket_ind = findnth(displayname, '_', 5)
     p1 = displayname[p1_ind + 1:p2_ind]
     p2 = displayname[p2_ind + 1:bucket_ind]
-    player1 = "<span style='color:blue'>" + p1 + "</span>"
-    player2 = "<span style='color:red'>" + p2 + "</span>"
+    player1 = "<span class='p1'>" + p1 + "</span>"
+    player2 = "<span class='p2'>" + p2 + "</span>"
     bucket = displayname[bucket_ind + 1:-4]
     roundstr = filename[:p1_ind].replace("_", " ")
     out_path = "../tron_replays/" + filename[:-4] + ".html"
@@ -91,17 +91,17 @@ for filename in glob.glob('*.txt'):
             tronResults += "</div>"
             if len(d1) == len(d2):
                 if flip:
-                    tronResults += "<h4>Player 2 (" + player2 + ") wins.</h4>"
+                    tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
                     p2wincount += 1
                 else:
-                    tronResults += "<h4>Player 1 (" + player1 + ") wins.</h4>"
+                    tronResults += "<p>Winner: Player 1 (" + player1 + ")</p>"
                     p1wincount += 1 
             else:
                 if flip:
-                    tronResults += "<h4>Player 1 (" + player1 + ") wins.</h4>"
+                    tronResults += "<p>Winner: Player 1 (" + player1 + ")</p>"
                     p1wincount += 1
                 else:
-                    tronResults += "<h4>Player 2 (" + player2 + ") wins.</h4>"
+                    tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
                     p2wincount += 1
 
     bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41</h1></a><h3>Bucket ' + bucket + ", " + roundstr + "</h3><h2>" + player1 + " v. " + player2 + '</h2><h5><span style="color:blue">' + str(p1wincount) + '</span> : <span style="color:red">' + str(p2wincount) + '</span></h5><img id="loading" src="https://media0.giphy.com/media/r09BeWEk9JZL2/source.gif"></header><main class="container">'
@@ -117,7 +117,7 @@ for i in ['0', '1', '2', '3']:
     for gamestr in games:
         htmlBody += '<li>' + gamestr + '</li>'
 htmlBody += "</ul>"
-bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41</h1></a>'
+bodyStart = '<body><header class="default-header"><a href="' + masterlistpath + '"><h1>TRON-41 Replays</h1></a>'
 bodyEnd = '</main></body><script src="test.js"></script></html>'
 html_results = header + bodyStart + htmlBody + bodyEnd
 with open(masterlistpath, "w", encoding='utf-8') as out:
