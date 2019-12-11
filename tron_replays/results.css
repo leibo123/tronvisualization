@@ -26,6 +26,8 @@ h1 {
     color: #E06800;
     font-family: 'Atari Classic Chunky';
     font-size: 64px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
 }
 
 h4 {
@@ -50,6 +52,33 @@ a {
     color: #9C9CB2;
 }
 
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.p1 {
+    color: #BAD650;
+    font-weight: bold;
+}
+
+.p2 {
+    color: #FFB938;
+    font-weight: bold;
+}
+
+.vs {
+    font-size: 24px;
+}
+
+.score {
+    font-size: 36px;
+}
+
+.vs .p1, .vs .p2, .score .p1, .score .p2 {
+    font-family: 'Atari Classic Chunky';
+}
+
 .board {
     display: flex;
     flex-wrap: wrap;
@@ -67,32 +96,39 @@ a {
 }
 
 .board > span > p {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
+    left: 0; */
+    line-height: 20px;
     font-weight: 700;
+    color: black;
+}
+
+.tournament-container + p {
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 
 .wall {
-    background-color: black;
+    background-color: #b3b3c9;
 }
 
 .barrier {
-    background-color: gray;
+    background-color: #6b6b7c;
 }
 
 .player1 {
-    background-color: orange;
+    background-color: #BAD650;
 }
 
 .player2 {
-    background-color: orange;
+    background-color: #FFB938;
 }
 
 .trap {
-    background-color: gold;
+    background-color: #b57cd2;
 }
-
+/* 
 .armor {
     background-color: purple;
 }
@@ -103,7 +139,7 @@ a {
 
 .bomb {
     background-color: red;
-}
+} */
 
 #loading {
     width: 40vw;

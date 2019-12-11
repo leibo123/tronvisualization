@@ -70,7 +70,8 @@ for filename in glob.glob('*.txt'):
         p1wincount = 0
         p2wincount = 0
         for d1, d2 in data:
-            tronResults += "<div class='tournament-container'>"
+            tronResults += "<div class='game-wrapper'>"
+            tronResults += "<div class='game'>"
             firstturn = True
             flip = False
             for d3, d4 in zip(d1, d2):
@@ -88,7 +89,7 @@ for filename in glob.glob('*.txt'):
                 tronResults += boardToHTML(d1[len(d1) - 1])
             elif len(d2) > len(d1):
                 tronResults += boardToHTML(d2[len(d2) - 1])
-            tronResults += "</div>"
+            tronResults += "</div><button class='restart' onclick='restart(" + boardIndex + ")'>R</button></div>"
             if len(d1) == len(d2):
                 if flip:
                     tronResults += "<p>Winner: Player 2 (" + player2 + ")</p>"
